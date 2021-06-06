@@ -1,11 +1,11 @@
 package com.zhaoyingjie.chapter2;
 
+import edu.princeton.cs.algs4.StdDraw;
+import edu.princeton.cs.algs4.StdRandom;
+
 import java.awt.*;
 import java.util.LinkedList;
 import java.util.List;
-
-import edu.princeton.cs.algs4.StdDraw;
-import edu.princeton.cs.algs4.StdRandom;
 
 /**
  * @author zhaoyingjie
@@ -34,9 +34,11 @@ public class Shell extends AbstractSort {
         StdDraw.clear(Color.BLACK);
         StdDraw.setPenRadius(0.005);
         StdDraw.setPenColor(Color.LIGHT_GRAY);
+        StdDraw.enableDoubleBuffering();
         for (int i = 0; i < a.length; i++) {
             StdDraw.line(0.01 + i * 0.005, 0.1, 0.01 + i * 0.005, (Double) a[i] / 2 + 0.1);
         }
+        StdDraw.show();
     }
 
     public static void main(String[] args) {

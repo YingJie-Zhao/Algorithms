@@ -39,6 +39,7 @@ public class MergeBU extends AbstractSort {
 //        StdDraw.text(0.5, 0.8, "MergeBU ----- 下边界:" + lo + " 上边界: " + hi);
         StdDraw.setPenRadius(0.005);
         StdDraw.setYscale();
+        StdDraw.enableDoubleBuffering();
         for (int i = 0; i < a.length; i++) {
 //            if (lo <= i && i <= hi) {
 //                StdDraw.setPenColor(Color.RED);
@@ -47,6 +48,7 @@ public class MergeBU extends AbstractSort {
 //            }
             StdDraw.line(0.1 + i * 0.005, 0.1, 0.1 + i * 0.005, (Double) a[i] / 2 + 0.1);
         }
+        StdDraw.show();
     }
 
     public static void sort(Comparable[] a) throws InterruptedException {
