@@ -1,11 +1,11 @@
 package com.zhaoyingjie.chapter2;
 
+import edu.princeton.cs.algs4.StdDraw;
+import edu.princeton.cs.algs4.StdRandom;
+
 import java.awt.*;
 import java.util.LinkedList;
 import java.util.List;
-
-import edu.princeton.cs.algs4.StdDraw;
-import edu.princeton.cs.algs4.StdRandom;
 
 /**
  * @author zhaoyingjie
