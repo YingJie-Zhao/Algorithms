@@ -1,8 +1,9 @@
 package com.zhaoyingjie.chapter1;
 
-import java.util.Iterator;
-
+import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
+
+import java.util.Iterator;
 
 /**
  * @author zhaoyingjie
@@ -81,6 +82,19 @@ public class RandomQueue<T> implements Iterable<T> {
         @Override
         public T next() {
             return items[seq[index++]];
+        }
+    }
+
+    public static void main(String[] args) {
+        RandomQueue<Integer> queue = new RandomQueue<>();
+        for (int i = 0; i < 10; i++) {
+            queue.enqueue(i);
+        }
+        for (int j = 0; j < 3; j++) {
+            for (Integer item : queue) {
+                StdOut.print(item + " ");
+            }
+            StdOut.println();
         }
     }
 }
