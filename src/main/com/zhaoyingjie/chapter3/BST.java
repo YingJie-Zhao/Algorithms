@@ -30,10 +30,41 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     public Value get(Key key) {
-        return null;
+        return get(root, key);
+    }
+
+    private Value get(Node x, Key key) {
+        if (x == null) {
+            return null;
+        }
+        int cmp = key.compareTo(x.key);
+        if (cmp < 0) {
+            return get(x.left, key);
+        } else if (cmp > 0) {
+            return get(x.right, key);
+        } else {
+            return x.val;
+        }
+
     }
 
     public void put(Key key, Value val) {
+        root = put(root, key, val);
+    }
 
+    private Node put(Node x, Key key, Value val) {
+        if (x == null) {
+            return new Node(key, val, 1);
+        }
+        int cmp = key.compareTo(x.key);
+        if (cmp < 0) {
+            x.left = put(x.left, key, val);
+        } else if (cmp > 0) {
+            x.right = put(x.right, key, val);
+        } else {
+            x.val = val;
+        }
+        x.N = size(x.left) + size(x.right) + 1;
+        return x;
     }
 }
