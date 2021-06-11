@@ -1,5 +1,7 @@
 package com.zhaoyingjie.chapter3;
 
+import edu.princeton.cs.algs4.Queue;
+
 public class BST<Key extends Comparable<Key>, Value> {
 
     private Node root;
@@ -201,5 +203,32 @@ public class BST<Key extends Comparable<Key>, Value> {
         }
         x.N = size(x.left) + size(x.right) + 1;
         return x;
+    }
+
+    public Iterable<Key> keys() {
+        return keys(min(), max());
+    }
+
+    public Iterable<Key> keys(Key lo, Key hi) {
+        Queue<Key> queue = new Queue<>();
+        keys(root, queue, lo, hi);
+        return queue;
+    }
+
+    private void keys(Node x, Queue<Key> queue, Key lo, Key hi) {
+        if (x == null) {
+            return;
+        }
+        int cmpLow = lo.compareTo(x.key);
+        int cmpHi = hi.compareTo(x.key);
+        if (cmpLow < 0) {
+            keys(x.left, queue, lo, hi);
+        }
+        if (cmpLow <= 0 && cmpHi >= 0) {
+            queue.enqueue(x.key);
+        }
+        if (cmpHi > 0) {
+            keys(x.right, queue, lo, hi);
+        }
     }
 }
