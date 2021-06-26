@@ -59,7 +59,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
     private void flipColors(Node h) {
         h.color = RED;
         h.left.color = BLACK;
-        h.right.color = RED;
+        h.right.color = BLACK;
     }
 
     public void put(Key key, Value val) {
