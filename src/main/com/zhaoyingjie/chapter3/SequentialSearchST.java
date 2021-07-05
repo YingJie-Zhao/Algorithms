@@ -1,5 +1,8 @@
 package com.zhaoyingjie.chapter3;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class SequentialSearchST<Key, Value> {
 
     private Node first;
@@ -33,5 +36,15 @@ public class SequentialSearchST<Key, Value> {
             }
         }
         first = new Node(key, val, first);
+    }
+
+    public Iterable<Key> keys() {
+        List<Key> keys = new LinkedList<>();
+        Node p = this.first;
+        while (null != p) {
+            keys.add(p.key);
+            p = p.next;
+        }
+        return keys;
     }
 }
